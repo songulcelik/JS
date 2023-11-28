@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+    <script>
+//Şeklindeki dizi elemanlarının değerini verilen oran kadar artıran fonksiyonu yazınız.
+let price = [12, 56, 14, 67, 89, 33, 22];
+
+const setPrices = (arr,rate) => {
+  
+    for(let i=0; i<arr.length; i++){
+        if(!Array.isArray(arr) || arr.length<=0){
+            return;
+        }
+
+        arr[i]=arr[i] + (arr[i]*rate)/100;
+    }
+  return arr;
+}
+
+console.log(setPrices(price,50));
+
+
+
+
+
+
+    </script>
+</body>
+</html>
