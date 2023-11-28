@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //verilen arraydaki max sayi bulunuz
+      let sayilar = [12, 56, 14, 67, 89, 123, 22];
+
+      let maxNumber = sayilar[0];
+      for (let i = 0; i < sayilar.length; i++) {
+        if (maxNumber < sayilar[i]) {
+          maxNumber = sayilar[i];
+        }
+      }
+      console.log(maxNumber);
+    </script>
+  </body>
+</html>
