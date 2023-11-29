@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+const adlar = ["Ahmet", "Can","Mustafa","Ayşe","Elif"];
+const soyAdlar= ["Öztürk", "Yılmaz", "Arı", "Çalı", "Yazı"];
+
+const isimBirlestir = (names,surNames) => {
+  let birlestikArr=[];
+  for(let w in names){
+
+    birlestikArr.push(`${names[w]} ${surNames[w]}`)
+
+  }
+  return birlestikArr;
+}
+
+console.log(isimBirlestir(adlar,soyAdlar));
+
+
+    </script>
+</body>
+</html>
