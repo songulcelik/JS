@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sync - Async</title>
+    </head>
+    <body>
+             <!-- ! Js Synchronous yapida calisir. Ustten alta sirayla okur. Asynchronous yapida calisan yapilar en son calisir. Amaci sonda calismasi degildir. Diger yapilardan (main threadden) ayri bir thread de calisir. Aynchronous yapilar harici kaynaga baglanilirken kullanilir (Farkli bir apiye). Ornegin google map ten data cekilecek. JavaScript'te asenkron fonksiyonlar genellikle callback ( Asenkron yapida veri dondurmeyi saglar) fonksiyonları kullanılarak uygulanır. Asenkron yapidan donen degeri kullanacaksak eger call back icerisinde kullanilmalidir. Asenkron yapida returne kullanilmaz cunku data dondurmez, call back returne yerine gecer bir nevi -->
+        
+        <script>
+            
+            const siparisVerdik = (talep, cb) => { 
+                console.log(`${talep} hazırlanıyor...`);
+                setTimeout( ()=> {
+                    console.log(`${talep} hazır`);
+                    const siparis = talep;
+                    cb(siparis);
+                }, 5000);
+            }
+            
+            console.log("AVM ye gittik");
+            console.log("Bowling oynadık");
+            console.log("Karnımız acıktı");
+            siparisVerdik("lahmacun", (sip)=>{
+                console.log(`${sip} teslim alındı`);
+                console.log("Afiytle yendi")
+            });
+            console.log("Ayakkabı bakmaya git");
+        </script>
+    </body>
+</html>
