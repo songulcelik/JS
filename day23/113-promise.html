@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Promise</title>
+    </head>
+    <body>
+          <!-- Promises (amac asenkrondan datayi dondurmek) callback chain'e alternatif, daha guvenlidir. new Promise(resolve,reject) ilk parametre olumlu ikinci parametre negatif degeri temsil eder, reject kullanimi zorunlu degildir. Resolve ile dönüşler then tarafında, reject ile dönüşler catch tarafında yakalanır. Promise objesinin 3 durumu vardir.
+    pending: başlangıç durumu, henüz başarılı veya başarısız değil. 
+    fulfilled: işlem başarıyla tamamlandı.
+    rejected: işlem başarısız oldu.
+    -->
+        <button id="btnDelete">Delete</button>
+        <script>
+            const confirmAsync = (msg) => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        const result = confirm(msg);
+                        resolve(result);
+                    }, 0);
+                });
+            };
+            document
+                .getElementById("btnDelete")
+                .addEventListener("click", () => {
+                    confirmAsync("Are you sure to delete").then((data)=>{
+                        if(data){
+                            console.log("KAyıt silindi")
+                        }
+                        else{
+                            console.log("Silmekten vazgeçti")
+                        }
+                    })
+                    console.log("Hello");
+                });
+        </script>
+    </body>
+</html>
