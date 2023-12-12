@@ -1,6 +1,8 @@
 const BASE_URL = "https://carrental-v3-backend.herokuapp.com";
 const listCars = document.getElementById("listCars");
 const carDetails = document.getElementById("carDetails");
+const loader = document.getElementById("loader");
+const carContainer = document.getElementById("carContainer");
 
 const loadCars = () => {
 	const url = `${BASE_URL}/car/visitors/all`;
@@ -10,16 +12,30 @@ const loadCars = () => {
 		.then((data) => {
 			console.log(data);
 			fillCarList(data);
+		})
+		.catch((err) => {
+			console.log(err);
+		})
+		.finally(() => {
+			toogleLoader("hide");
 		});
 };
 
 const loadCar = (id) => {
 	const url = `${BASE_URL}/car/visitors/${id}`;
 
+	toogleLoader("show");
+
 	fetch(url)
 		.then((res) => res.json())
 		.then((data) => {
 			fillCarDetails(data);
+		})
+		.catch((err) => {
+			console.log(err);
+		})
+		.finally(() => {
+			toogleLoader("hide");
 		});
 };
 
@@ -103,6 +119,16 @@ const fillCarDetails = (car) => {
 	carDetails.innerHTML = strDetails;
 };
 
+const toogleLoader = (state) => {
+	if (state === "show") {
+		loader.classList.remove("d-none");
+		carContainer.classList.add("d-none");
+	} else {
+		loader.classList.add("d-none");
+		carContainer.classList.remove("d-none");
+	}
+};
+
 loadCars();
 
 /* EVENT FUNCTIONS */
@@ -120,6 +146,6 @@ carDetails.addEventListener("click", (e) => {
 	if (e.target.id === "btnReturn") {
 		listCars.classList.remove("d-none");
 		carDetails.classList.add("d-none");
-        window.scrollTo(0,0)
+		window.scrollTo(0, 0);
 	}
 });
